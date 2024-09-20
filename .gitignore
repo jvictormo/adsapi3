@@ -1,2 +1,4 @@
 node_modules/
 .env
+src/firebase-adm-config.json
+src/config/firebaseService.json

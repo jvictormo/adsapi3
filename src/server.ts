@@ -2,6 +2,9 @@ import "reflect-metadata"
 import express from "express"
 import { AppDataSource } from "./database/DataSource"
 import { routes } from "./routes"
+import { initializeApp } from 'firebase-admin/app';
+import admin from "firebase-admin";
+const serviceAccount = require("./config/firebaseService.json");
 
 require('dotenv').config();
 
