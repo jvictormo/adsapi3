@@ -1,19 +1,23 @@
-import { Entity, Column, CreateDateColumn ,PrimaryColumn } from "typeorm"
+import { Entity, Column, CreateDateColumn ,PrimaryGeneratedColumn } from "typeorm"
 
 @Entity("AdmUser")
 export class Adm {
-    @PrimaryColumn()
-    email: string;
+    @PrimaryGeneratedColumn()
+    id: number;
 
     @Column()
     name: string;
 
-    @PrimaryColumn()
+    @Column()
+    email: string;
+
+    @Column()
     cnpj: string;
 
     @Column()
     companyName: string;
 
     @CreateDateColumn()
-    singUpDate: Date;
+    signUpDate: Date;
+
 }

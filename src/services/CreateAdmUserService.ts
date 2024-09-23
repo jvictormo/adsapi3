@@ -2,24 +2,25 @@ import { AppDataSource } from "../database/DataSource";
 import { Adm } from "../entities/AdmUser"
 
 type AdmUserRequest = {
-    email: string;
     name: string;
+    email: string;
     cnpj: string;
     companyName: string;
 }
 
 export class CreateAdmUserService {
-    async execute ({ email, name, cnpj, companyName }: AdmUserRequest): Promise<Adm | Error> {
+    async execute ({ name, email, cnpj, companyName }: AdmUserRequest): Promise<Adm | Error> {
         const repo = AppDataSource.getRepository(Adm);
 
+        const existingUserByName = await repo.findOne({where: {companyName}})
         const existingUserByEmail = await repo.findOne({ where: { email } });
         const existingUserByCnpj = await repo.findOne({ where: { cnpj } });
 
-        if (existingUserByEmail || existingUserByCnpj){
-            throw new Error("Email or CNPJ alredy exist");
+        if (existingUserByEmail || existingUserByCnpj || existingUserByName){
+            throw new Error("Email, CNPJ or companyName alredy exist");
         }
 
-        const admUser = repo.create({ email, name, cnpj, companyName });
+        const admUser = repo.create({ name, email, cnpj, companyName });
 
         await repo.save(admUser)
 

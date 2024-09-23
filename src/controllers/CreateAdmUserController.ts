@@ -4,13 +4,13 @@ import { getAuth, createUserWithEmailAndPassword } from '../config/firebase.cjs'
 
 export class CreateAdmUserController {
     async handle(req, res) {
-        const { email, name, cnpj, companyName, password } = req.body
+        const { name, email, cnpj, companyName, password } = req.body
 
         try {
 
             const service = new CreateAdmUserService();
 
-            const result = await service.execute({ email, name, cnpj, companyName });
+            const result = await service.execute({ name, email, cnpj, companyName });
 
             const userCredential = await createUserWithEmailAndPassword(getAuth(), email, password);
 
