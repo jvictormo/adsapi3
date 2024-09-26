@@ -29,6 +29,14 @@ export class CreateUserTable1726878263020 implements MigrationInterface {
                     type: "varchar"
                 },
                 {
+                    name: "cpf",
+                    type: "varchar"
+                },
+                {
+                    name:'companyName',
+                    type:'varchar',
+                },
+                {
                     name: "signUpDate",
                     type: "timestamp",
                     default: "now()"

@@ -19,10 +19,6 @@ export class TeamUser1727115001678 implements MigrationInterface {
                         type: 'int'
                     },
                     {
-                        name: 'leader_id',
-                        type: 'int'
-                    },
-                    {
                         name: 'user_id',
                         type: 'int',
                     }
@@ -35,12 +31,6 @@ export class TeamUser1727115001678 implements MigrationInterface {
                 columnNames: ['team_id'],
                 referencedColumnNames: ['id'],
                 referencedTableName: 'Team',
-                onDelete: 'CASCADE'
-            }),
-            new TableForeignKey({
-                columnNames: ['leader_id'],
-                referencedColumnNames: ['id'],
-                referencedTableName: 'User',
                 onDelete: 'CASCADE'
             }),
             new TableForeignKey({
@@ -57,10 +47,9 @@ export class TeamUser1727115001678 implements MigrationInterface {
         const table = await queryRunner.getTable('Team_User');
 
         const fk1 = table.foreignKeys.find(fk => fk.columnNames.indexOf('team_id') !== -1);
-        const fk2 = table.foreignKeys.find(fk => fk.columnNames.indexOf('leader_id') !== -1);
-        const fk3 = table.foreignKeys.find(fk => fk.columnNames.indexOf('user_id') !== -1);
+        const fk2 = table.foreignKeys.find(fk => fk.columnNames.indexOf('user_id') !== -1);
 
-        let fks = [fk1, fk2, fk3]
+        let fks = [fk1, fk2]
 
         for (let fkey = 0; fkey < fks.length; fkey++){
             try{

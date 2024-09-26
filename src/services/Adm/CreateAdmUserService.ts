@@ -1,5 +1,5 @@
-import { AppDataSource } from "../database/DataSource";
-import { Adm } from "../entities/AdmUser"
+import { AppDataSource } from "../../database/DataSource";
+import { Adm } from "../../entities/AdmUser"
 
 type AdmUserRequest = {
     name: string;

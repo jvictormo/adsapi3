@@ -12,7 +12,13 @@ export class User {
     name: string;
 
     @Column()
-    email: string;    
+    email: string;
+
+    @Column()
+    cpf: string;
+
+    @Column()
+    companyName: string;
 
     @CreateDateColumn()
     signUpDate: Date;

@@ -9,8 +9,5 @@ import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
         team_id: number;
         
         @Column()
-        leader_id: number;
-        
-        @Column()
         user_id: number;
         }

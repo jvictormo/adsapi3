@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { CreateAdmUserService } from "../services/CreateAdmUserService";
-import { getAuth, createUserWithEmailAndPassword } from '../config/firebase.cjs';
+import { CreateAdmUserService } from "../../services/Adm/CreateAdmUserService";
+import { getAuth, createUserWithEmailAndPassword } from '../../config/firebase.cjs';
 
 export class CreateAdmUserController {
     async handle(req, res) {

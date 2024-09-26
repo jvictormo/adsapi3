@@ -4,11 +4,14 @@ import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
     export class Team{
         @PrimaryGeneratedColumn()
         id: number;
+
+        @Column()
+        description: string;
    
         @Column()
-        leader_id: number;
-        
-        @Column()
         name: string;
+
+        @Column()
+        companyName: string;
         
 }

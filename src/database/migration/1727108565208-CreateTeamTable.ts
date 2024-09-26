@@ -16,35 +16,26 @@ export class CreateTeamTable1727108565208 implements MigrationInterface {
                         generationStrategy: "increment"
                     },
                     {
-                        name: 'leader_id',
-                        type: 'int'
-                    },
-                    {
                         name: 'name',
                         type: 'varchar',
                         isUnique: true
-                    }
+                    },
+                    {
+                        name: 'description',
+                        type: 'varchar',
+                        isUnique: true
+                    },
+                    {
+                        name:'companyName',
+                        type:'varchar',
+                        isUnique: true
+                    },
                 ]
-            })
-        )
-
-        await queryRunner.createForeignKey("Team",
-            new TableForeignKey({
-                columnNames: ["leader_id"],
-                referencedColumnNames: ['id'],
-                referencedTableName: 'User',
-                onDelete: "CASCADE"
             })
         )
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        const table = await queryRunner.getTable("Team");
-
-        const foreignKey = table.foreignKeys.find(fk => fk.columnNames.indexOf("leader_id") !== -1);
-        
-        await queryRunner.dropForeignKey("Team", foreignKey);
-
         await queryRunner.dropTable("Team")
     }
 

@@ -1,17 +1,28 @@
 import { Router } from "express";
-import { CreateAdmUserController } from "./controllers/CreateAdmUserController";
-import { CreateUserController } from "./controllers/CreateUserServiceController";
-import { CreateTeamController } from "./controllers/CreateTeamController";
-import { CreateTeam_UserController } from "./controllers/CreateTeam_UserController";
+import { CreateAdmUserController } from "./controllers/Adm/CreateAdmUserController";
+import { CreateUserController } from "./controllers/User/CreateUserServiceController";
+import { CreateTeamController } from "./controllers/Team/CreateTeamController";
+import { GetAdmUserAuthController } from "./controllers/Adm/GetAdmUserAuthController";
+import { GetUserAuthController } from "./controllers/User/GetUserAuthController";
+import { DeleteUserController } from "./controllers/User/DeleteUserController"
+import { DeleteAdmUserController } from "./controllers/Adm/DeleteAdmUserController";
+import { GetTeamController } from "./controllers/Team/GetTeamController";
+import { DeleteTeamController } from "./controllers/Team/DeleteTeamController";
+import { GetUserController } from "./controllers/User/GetUserController";
 
 const routes = Router();
 
 routes.post("/adm", new CreateAdmUserController().handle);
+routes.get("/adm/auth", new GetAdmUserAuthController().handle);
+routes.delete("/adm/:id", new DeleteAdmUserController().handle);
 
 routes.post("/user", new CreateUserController().handle);
+routes.get("/user", new GetUserController().handle);
+routes.get("/user/auth", new GetUserAuthController().handle);
+routes.delete("/user/:id", new DeleteUserController().handle);
 
 routes.post("/team", new CreateTeamController().handle);
-
-routes.post('/team_user', new CreateTeam_UserController().handle)
+routes.get("/team/:id", new GetTeamController().handle);
+routes.delete("/team/:id", new DeleteTeamController().handle);
 
 export { routes }

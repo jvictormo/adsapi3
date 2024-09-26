@@ -29,6 +29,7 @@ const {
     isSignInWithEmailLink,
     reauthenticateWithCredential,
     deleteUser,
+    deleteUserByEmail,
     updatePassword,
     EmailAuthProvider,
   
@@ -45,6 +46,7 @@ const {
     isSignInWithEmailLink,
     reauthenticateWithCredential,
     deleteUser,
+    deleteUserByEmail,
     updatePassword,
     EmailAuthProvider,
     admin

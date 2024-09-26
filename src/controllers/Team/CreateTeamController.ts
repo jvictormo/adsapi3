@@ -1,14 +1,14 @@
 import { Request, Response} from 'express';
-import { CreateTeamService } from '../services/CreateTeamService';
+import { CreateTeamService } from '../../services/Team/CreateTeamService';
     
     export class CreateTeamController{
         async handle(req, res) {
-            const {leader_id, name} = req.body
+            const {description, name, companyName} = req.body
 
             try {
                 const service = new CreateTeamService()
 
-                const result = await service.execute({leader_id, name});
+                const result = await service.execute({description, name, companyName});
 
                 if (result instanceof Error){
                     return res.status(400).json(result.message)
