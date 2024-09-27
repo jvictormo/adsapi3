@@ -1,8 +1,8 @@
 import {Column, CreateDateColumn, Entity, PrimaryGeneratedColumn} from "typeorm"
-
+//criando classe para se usar no server
 @Entity("User")
 export class User {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn() //coluna chave primária
     id: number;
 
     @Column()
@@ -20,6 +20,6 @@ export class User {
     @Column()
     companyName: string;
 
-    @CreateDateColumn()
+    @CreateDateColumn() //coluna que declara quando o registro foi cadastrado
     signUpDate: Date;
 }

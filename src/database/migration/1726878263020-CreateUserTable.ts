@@ -10,6 +10,7 @@ export class CreateUserTable1726878263020 implements MigrationInterface {
                 {
                     name: "id",
                     type: "int",
+                    //faz com que achava primária seja gerada sozinha
                     isPrimary: true,
                     isUnique: true,
                     isGenerated: true,
@@ -39,13 +40,14 @@ export class CreateUserTable1726878263020 implements MigrationInterface {
                 {
                     name: "signUpDate",
                     type: "timestamp",
-                    default: "now()"
+                    default: "now()" //registra o tempo quando insere os dados
                 }
                 ]
             })
         )
     }
 
+    //destroi a tabela
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable("User")
     }

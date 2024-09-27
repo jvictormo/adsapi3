@@ -6,6 +6,7 @@ import { initializeApp } from 'firebase-admin/app';
 import admin from "firebase-admin";
 const serviceAccount = require("./config/firebaseService.json");
 
+//incia a aplicação
 require('dotenv').config();
 
 const app = express();

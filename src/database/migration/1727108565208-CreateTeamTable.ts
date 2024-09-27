@@ -11,6 +11,7 @@ export class CreateTeamTable1727108565208 implements MigrationInterface {
                     {
                         name: 'id',
                         type: 'int',
+                        //faz com que achava primária seja gerada sozinha
                         isPrimary: true,
                         isGenerated: true,
                         generationStrategy: "increment"
@@ -34,7 +35,7 @@ export class CreateTeamTable1727108565208 implements MigrationInterface {
             })
         )
     }
-
+    //elimiana a tabela
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable("Team")
     }

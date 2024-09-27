@@ -10,6 +10,7 @@ export class CreateAdmTable1726882399356 implements MigrationInterface {
                     {
                         name: 'id',
                         type: 'int',
+                        //faz com que achava primária seja gerada sozinha
                         isPrimary: true,
                         isGenerated: true,
                         generationStrategy: "increment"
@@ -36,13 +37,13 @@ export class CreateAdmTable1726882399356 implements MigrationInterface {
                     {
                         name: "signUpDate",
                         type: "timestamp",
-                        default: "now()"
+                        default: "now()" //registra o tempo quando insere os dadoos
                     }
                 ]
             })
         )
     }
-
+    //elimina a tabela
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable('AdmUser')
     }

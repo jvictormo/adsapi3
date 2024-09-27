@@ -1,8 +1,8 @@
 import {Column, Entity, PrimaryGeneratedColumn} from 'typeorm'
-
+//criar classe para se usar no service
     @Entity('Team')
     export class Team{
-        @PrimaryGeneratedColumn()
+        @PrimaryGeneratedColumn() //coluna da chave primmária
         id: number;
 
         @Column()

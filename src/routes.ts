@@ -1,3 +1,6 @@
+//esse arquivo define as rotas do site
+//basicamente, para mandar uma informação do front para o back, é preciso criar uma rota
+//exemplo da rota do adm: http://localhost:3000/adm
 import { Router } from "express";
 import { CreateAdmUserController } from "./controllers/Adm/CreateAdmUserController";
 import { CreateUserController } from "./controllers/User/CreateUserServiceController";
